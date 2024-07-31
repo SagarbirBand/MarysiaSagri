@@ -1,0 +1,192 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    background-color: rgb(189, 225, 122);
+}
+
+/* Pseudo-element for background image */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.onlygfx.com/wp-content/uploads/2018/10/4-heart-confetti-background-1.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0; /* Start invisible */
+    z-index: -1; /* Behind other content */
+    animation: fadeInBackground 5s 8s forwards; /* Background fade-in animation */
+}
+
+.header_text {
+    font-family: 'Nunito';
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 0px;
+    z-index: 1; /* Ensure text is above background */
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    transform: scale(3);
+    z-index: 1; /* Ensure images are above background */
+}
+
+.image {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 1s ease-in-out;
+    width: 100px;
+    height: auto;
+    opacity: 0; 
+    transform-origin: center;
+}
+
+.image-left {
+    left: -100px; 
+    animation: moveLeftToCenter 5s forwards, rotateImagesLeft 3s 5s forwards;
+}
+
+.image-right {
+    right: -100px;
+    animation: moveRightToCenter 5s forwards, rotateImagesRight 3s 5s forwards;
+}
+
+@keyframes moveLeftToCenter {
+    0% {
+        left: -100px;
+        opacity: 0;
+    }
+    50% {
+        left: 35%; 
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+    100% {
+        left: 41%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+@keyframes moveRightToCenter {
+    0% {
+        right: -100px;
+        opacity: 0;
+    }
+    50% {
+        right: 35%; 
+        transform: translate(50%, -50%);
+        opacity: 1;
+    }
+    100% {
+        right: 41%;
+        transform: translate(50%, -50%);
+        opacity: 1;
+    }
+}
+
+@keyframes rotateImagesLeft {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    20% {
+        transform: translate(-50%, -50%) rotate(20deg);
+    }
+    40% {
+        transform: translate(-50%, -50%) rotate(-40deg);
+    }
+    60% {
+        transform: translate(-50%, -50%) rotate(40deg);
+    }
+    80% {
+        transform: translate(-50%, -50%) rotate(-40deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+@keyframes rotateImagesRight {
+    0% {
+        transform: translate(50%, -50%) rotate(0deg);
+    }
+    20% {
+        transform: translate(50%, -50%) rotate(20deg);
+    }
+    40% {
+        transform: translate(50%, -50%) rotate(-40deg);
+    }
+    60% {
+        transform: translate(50%, -50%) rotate(40deg);
+    }
+    80% {
+        transform: translate(50%, -50%) rotate(-40deg);
+    }
+    100% {
+        transform: translate(50%, -50%) rotate(0deg);
+    }
+}
+
+@keyframes fadeInBackground {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+.buttons 
+{
+    position: absolute;
+    bottom: 20px;
+    z-index: 1; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn 
+{
+    background-color: #fff;
+    color: rgb(233, 48, 48);
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;   
+    opacity: 0;
+    animation: fadeInButton 3s 8s forwards; /* Button fade-in animation */
+}
+
+@keyframes fadeInButton {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
